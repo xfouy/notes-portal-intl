@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专题 · 世界杯观赛导览</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f2f2f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e1e;
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 1050px;
+            width: 100%;
+        }
+
+        /* hero banner */
+        .hero {
+            background: linear-gradient(145deg, #fafafa 0%, #e9ecef 100%);
+            border-radius: 28px;
+            padding: 48px 40px 38px;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.8);
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1a2634;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #4a525e;
+            max-width: 680px;
+            border-left: 4px solid #b0b8c4;
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        .hero .emblem {
+            position: absolute;
+            right: 36px;
+            bottom: 32px;
+            background: #d9dee3;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #2e3b47;
+            border: 1px solid #cacfd6;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 32px 34px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 0 0 1px #e8ebef;
+            transition: box-shadow 0.1s ease;
+        }
+        .card-section-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #252d38;
+            margin-bottom: 18px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #e1e5ea;
+            display: inline-block;
+        }
+        .card p {
+            margin-bottom: 16px;
+            color: #2f3742;
+            font-size: 0.98rem;
+        }
+        .card p:last-child { margin-bottom: 0; }
+
+        /* 两栏布局 */
+        .two-col {
+            display: flex;
+            gap: 28px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .two-col .card {
+            flex: 1 1 280px;
+            margin-bottom: 0;
+        }
+
+        /* faq 摘要 */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 30px;
+            margin-top: 6px;
+        }
+        .faq-item {
+            padding: 6px 0;
+            border-bottom: 1px dashed #e2e7ec;
+        }
+        .faq-q {
+            font-weight: 500;
+            font-size: 0.92rem;
+            color: #1e2a36;
+            margin-bottom: 2px;
+        }
+        .faq-a {
+            font-size: 0.88rem;
+            color: #55606e;
+            line-height: 1.5;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            margin-top: 18px;
+            padding: 24px 32px;
+            background: #eef1f5;
+            border-radius: 60px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3d4856;
+            border: 1px solid #d6dce3;
+            box-shadow: inset 0 1px 0 white;
+        }
+        .footer-note a {
+            color: #1f2b39;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #a8b3c1;
+            transition: border 0.1s;
+        }
+        .footer-note a:hover {
+            border-bottom-color: #1f2b39;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body { padding: 20px 14px; }
+            .hero { padding: 34px 22px 30px; }
+            .hero h1 { font-size: 2rem; }
+            .hero .emblem { display: none; }
+            .card { padding: 24px 20px; }
+            .two-col { flex-direction: column; gap: 18px; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .footer-note { padding: 20px 18px; border-radius: 28px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.7rem; }
+            .hero .sub { font-size: 0.95rem; padding-left: 14px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>世界杯简明指南</h1>
+        <div class="sub">赛事信息、观看提醒与实用背景 · 汇集为一份干净扎实的专题页</div>
+        <div class="emblem">⚽</div>
+    </div>
+
+    <!-- 背景说明 -->
+    <div class="card">
+        <div class="card-section-title">关于本届世界杯</div>
+        <p>作为全球关注度最高的单项体育赛事，世界杯每四年汇聚来自六大洲的顶尖队伍。本次赛事周期涉及多个时区与场地，对于计划关注直播或前往现场的观众而言，提前了解赛程安排、场馆分布及票务信息能有效减少临场不便。主办方在交通接驳、出入境指引和数字服务方面陆续公布了官方说明，建议大家以官方渠道发布的最新公告为准。</p>
+        <p>观赛方式主要分为现场观赛与转播收看两种。现场观众需留意签证要求及住宿预订窗口，而通过电视或网络平台观看时，应确认所在地区的持权转播商，以免错过关键场次。下文整理了三个核心提醒，供初次关注本届赛事的观众参考。</p>
+    </div>
+
+    <!-- 三段自然介绍 (卡片形式) -->
+    <div class="two-col">
+        <div class="card">
+            <div class="card-section-title">❶ 赛前准备</div>
+            <p>出发前建议核对个人证件有效期、国际旅行保险及目的地入境规定。部分赛区要求提前注册数字健康或安保凭证，请预留充足时间完成线上验证。另外，球场通常禁止携带专业摄像设备与大型背包，随身物品尽量精简。</p>
+            <p>若选择在家观赛，可提前测试网络稳定性，并留意官方发布的比赛时间表——部分强强对话安排在当地时间深夜，跨时区观众需注意休息安排。</p>
+        </div>
+        <div class="card">
+            <div class="card-section-title">❷ 场内体验</div>
+            <p>现场观赛时，建议提前两小时抵达球场外围，以应对安检与人群排队。场馆内多数提供免费饮水点，但食品价格偏高；部分场地支持无现金支付，备一张国际信用卡会更方便。中途离场请保留票根或手环，以便重新入场。</p>
+            <p>观赛期间请遵守当地法律法规，避免携带政治性或冒犯性标语。若遇到紧急情况，可寻找附近身着亮色制服的志愿者或安保人员。</p>
+        </div>
+        <div class="card">
+            <div class="card-section-title">❸ 数字工具</div>
+            <p>本届赛事官方应用程序整合了赛程、积分榜、新闻推送与场馆导航功能，支持离线模式。此外，部分社交平台会实时推送进球集锦与战术分析，适合希望快速回顾比赛亮点的用户。建议从正规应用商店下载，避免使用来源不明的第三方插件。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 + 特点卡片 -->
+    <div class="card">
+        <div class="card-section-title">常见疑问摘要</div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-q">如何确认比赛时间是否变更？</div>
+                <div class="faq-a">以官网赛程页面为准，通常提前48小时发布最终开球时间。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">球场内是否有Wi-Fi？</div>
+                <div class="faq-a">大部分主场馆提供免费Wi‑Fi，但高峰时段连接可能不稳定。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">门票转让是否合规？</div>
+                <div class="faq-a">仅官方渠道授权的转售平台有效，私下转让存在无法入场风险。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">可否携带充电宝进场？</div>
+                <div class="faq-a">一般允许，但容量通常限制在20000mAh以下，具体查看场馆规定。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 (嵌入 a 标签) -->
+    <div class="footer-note">
+        以上内容仅为观赛前的基础梳理，更完整、更具权威性的赛事信息请直接访问
+        <a href="https://portal-intl-united2026.com">世界杯</a>
+        官方发布平台。祝您享受一段专注而愉快的足球时光。
+    </div>
+
+</div>
+</body>
+</html>
